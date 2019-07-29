@@ -1,16 +1,15 @@
+window.onload = function () {
 
-(function (handleload) {
-    var xhr = new XMLHttpRequest();
+    fetch('https://script.google.com/macros/s/AKfycbw-U1KFkAtGdlkeIH2zlsxJUFZnaN1v5aYhBdg751PRTKm-iDwb/exec', {
+        method: 'GET'
+    }).then(function (response) {
+        return response.json();
+    }).then(function (json) {
 
-    xhr.addEventListener("load", handleload, false);
-    xhr.open("GET", "https://script.google.com/macros/s/AKfycbw-U1KFkAtGdlkeIH2zlsxJUFZnaN1v5aYhBdg751PRTKm-iDwb/exec", true);
-    xhr.send(null);
-})(function handleLoad(event) {
-    var xhr = event.target,
-        obj = JSON.parse(xhr.responseText);
-    initVue(obj);
-    console.log(obj);
-});
+        console.log(JSON.stringify(json));
+        initVue((json));
+    });
+};
 
 function initVue(data) {
     new Vue({
