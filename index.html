@@ -7,15 +7,36 @@
     <title>支払い</title>
 
     <!-- Bluma -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
+    <link rel="stylesheet" href="css/bulma.min.css">
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
 
+    <!-- Vue.js -->
+    <script src="js/vue.min.js"></script>
+
+    <!-- Custom JS -->
+    <script src="js/script.js"></script>
 </head>
 
 <body>
     <section class="section">
         <div class="container">
             <h1 class="title">Hello World</h1>
+            <div v-for="(value) in fes" id="app">
+                <table class="table is-fullwidth">
+                    <thead>
+                        <tr>
+                            <th>商品</th>
+                            <th>金額</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr v-for="(value, key) in list">
+                            <th>{{ value.name }}</th>
+                            <td>￥{{ value.price }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </section>
 </body>
